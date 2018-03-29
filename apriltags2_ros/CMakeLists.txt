@@ -31,10 +31,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -funsafe-loop-optimizations -fsee -f
 if(${CMAKE_SYSTEM_PROCESSOR} MATCHES x86_64 OR x86_32)
   message("enabling msse2 for x86_64 or x86_32 architecture")
   #  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=native -msse2 ")
-endif(${CMAKE_SYSTEM_PROCESSOR} MATCHES x86_64 OR x86_32)
+  endif(${CMAKE_SYSTEM_PROCESSOR} MATCHES x86_64 OR x86_32)
 if(${CMAKE_SYSTEM_PROCESSOR} MATCHES arm)
-  message("enabling -mfpu=neon -mfloat-abi=softfp for ARM architecture")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=armv7-a -mcpu=cortex-a9 -mfpu=neon -mtune=cortex-a9 -mvectorize-with-neon-quad -ffast-math ")
+  message("enabling -mfpu=neon -mfloat-abi=hard for ARM architecture")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=armv7-a -mfloat-abi=hard -mcpu=cortex-a9 -mfpu=neon -mtune=cortex-a9 -mvectorize-with-neon-quad -ffast-math ")
 endif(${CMAKE_SYSTEM_PROCESSOR} MATCHES arm)
 
 add_message_files(
